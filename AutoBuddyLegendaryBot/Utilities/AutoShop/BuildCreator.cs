@@ -168,7 +168,7 @@ you can copy/share them.
                 var s = File.ReadAllText(buildFile);
                 if (s.Equals(string.Empty))
                 {
-                    Chat.Print("AutoBuddy: the build is empty.");
+                    Chat.Print("AutoBuddy (LegendaryBot Custom by James): the build is empty.");
                     LoadInternalBuild();
                     return;
                 }
@@ -181,7 +181,7 @@ you can copy/share them.
             }
             catch (Exception e)
             {
-                Chat.Print("AutoBuddy: couldn't load the build.");
+                Chat.Print("AutoBuddy (LegendaryBot Custom by James): couldn't load the build.");
 
                 LoadInternalBuild();
                 Console.WriteLine(e.Message);
@@ -195,7 +195,7 @@ you can copy/share them.
             {
                 if (sugBuild.Equals(string.Empty))
                 {
-                    Chat.Print("AutoBuddy: internal build is empty.");
+                    Chat.Print("AutoBuddy (LegendaryBot Custom by James): internal build is empty.");
                     return;
                 }
                 foreach (var ac in DeserializeBuild(sugBuild))
@@ -205,10 +205,10 @@ you can copy/share them.
             }
             catch (Exception e)
             {
-                Chat.Print("AutoBuddy: internal build load failed.");
+                Chat.Print("AutoBuddy (LegendaryBot Custom by James): internal build load failed.");
                 Console.WriteLine(e.Message);
             }
-            Chat.Print("AutoBuddy: Internal build loaded.");
+            Chat.Print("AutoBuddy (LegendaryBot Custom by James): Internal build loaded.");
         }
 
         private void SaveBuild()

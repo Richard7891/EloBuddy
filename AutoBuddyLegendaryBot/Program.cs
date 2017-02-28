@@ -38,7 +38,9 @@ namespace AutoBuddy
                 ManagedTexture.OnLoad += args => { args.Process = false; };
             }
             Loading.OnLoadingComplete += Loading_OnLoadingComplete;
-            if (Game.MapId != GameMapId.SummonersRift) return;
+            if (Game.MapId != GameMapId.SummonersRift) {
+              Chat.Print("AutoBuddy (LegendaryBot Custom by James) won't run in ARAM!:", System.Drawing.Color.chartreuse);
+            }
         }
 
         private static void Loading_OnLoadingComplete(EventArgs args)
@@ -60,8 +62,10 @@ namespace AutoBuddy
             var ABVersion = $"{v.Major}.{v.MajorRevision}.{v.Minor}.{v.MinorRevision}";
 
             Chat.Print("AutoBuddy (LegendaryBot Custom by James):", System.Drawing.Color.White);
-            Chat.Print($"Loaded Version: {ABVersion}", System.Drawing.Color.LimeGreen);
-            Chat.Print("AutoBuddy: Starting in 5 seconds.");
+            Chat.Print($"Loaded Version: {ABVersion}", System.Drawing.Color.blueviolet);
+            Chat.Print("http://legendary.zone/profile/1477-james/",System.Drawing.Color.LimeGreen);
+            Chat.Print("https://www.elobuddy.net/profile/344532-jamesphp/",System.Drawing.Color.LimeGreen);
+            Chat.Print("AutoBuddy (LegendaryBot Custom by James): Starting in 5 seconds.");
             var startTime = Game.Time < 13
                 ? (13000 - (int) (Game.Time * 1000) < 5000 ? 5000 : 13000 - (int) (Game.Time * 1000))
                 : 5000;
@@ -507,7 +511,7 @@ namespace AutoBuddy
                 if (MainMenu.GetMenu("AB_" + ObjectManager.Player.ChampionName) != null &&
                     MainMenu.GetMenu("AB_" + ObjectManager.Player.ChampionName).Get<Label>("shopSequence") != null)
                 {
-                    Chat.Print("Autobuddy: Loaded shop plugin for " + ObjectManager.Player.ChampionName);
+                    Chat.Print("AutoBuddy (LegendaryBot Custom by James): Loaded shop plugin for " + ObjectManager.Player.ChampionName);
                     var bc = new BuildCreator(menu, Path.Combine(SandboxConfig.DataDirectory
                         , "AutoBuddy\\Builds"),
                         MainMenu.GetMenu("AB_" + ObjectManager.Player.ChampionName)
