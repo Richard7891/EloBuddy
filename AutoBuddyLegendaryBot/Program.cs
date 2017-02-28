@@ -40,6 +40,7 @@ namespace AutoBuddy
             Loading.OnLoadingComplete += Loading_OnLoadingComplete;
             if (Game.MapId != GameMapId.SummonersRift) {
               Chat.Print("AutoBuddy (LegendaryBot Custom by James) won't run in outside Summoner's Rift!", System.Drawing.Color.LimeGreen);
+              return;
             }
         }
 
