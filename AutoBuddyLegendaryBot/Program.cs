@@ -31,6 +31,10 @@ namespace AutoBuddy
         public static int recallMana;
         public static void Main()
         {
+            if (Game.MapId != GameMapId.SummonersRift) {
+              Chat.Print("AutoBuddy (LegendaryBot Custom by James) won't run in outside Summoner's Rift!", System.Drawing.Color.LimeGreen);
+              return;
+            }
             Hacks.RenderWatermark = false;
             if (File.Exists(loadTextureDir + "loadTexture"))
             {
@@ -38,10 +42,6 @@ namespace AutoBuddy
                 ManagedTexture.OnLoad += args => { args.Process = false; };
             }
             Loading.OnLoadingComplete += Loading_OnLoadingComplete;
-            if (Game.MapId != GameMapId.SummonersRift) {
-              Chat.Print("AutoBuddy (LegendaryBot Custom by James) won't run in outside Summoner's Rift!", System.Drawing.Color.LimeGreen);
-              return;
-            }
         }
 
         private static void Loading_OnLoadingComplete(EventArgs args)
