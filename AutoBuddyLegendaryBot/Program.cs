@@ -31,10 +31,6 @@ namespace AutoBuddy
         public static int recallMana;
         public static void Main()
         {
-            if (Game.MapId != GameMapId.SummonersRift) {
-              Chat.Print("AutoBuddy (LegendaryBot Custom by James) won't run in outside Summoner's Rift!", System.Drawing.Color.LimeGreen);
-              return;
-            }
             Hacks.RenderWatermark = false;
             if (File.Exists(loadTextureDir + "loadTexture"))
             {
@@ -46,6 +42,11 @@ namespace AutoBuddy
 
         private static void Loading_OnLoadingComplete(EventArgs args)
         {
+            // SR Check
+            if (Game.MapId != GameMapId.SummonersRift) {
+              Chat.Print("AutoBuddy (LegendaryBot Custom by James) won't run in outside Summoner's Rift!", System.Drawing.Color.LimeGreen);
+              return;
+            }
             //AutoBlack Spear
             if (myHero.Hero == Champion.Kalista)
             {
@@ -67,7 +68,7 @@ namespace AutoBuddy
             Chat.Print("https://www.elobuddy.net/profile/344532-jamesphp",System.Drawing.Color.LimeGreen);
             Chat.Print("http://legendary.zone/profile/1477-james",System.Drawing.Color.LimeGreen);
             Chat.Print("https://paypal.me/JamesLoL",System.Drawing.Color.LimeGreen);
-            Chat.Print("AutoBuddy: Starting in 5 seconds.");
+            Chat.Print("AutoBuddy (LegendaryBot Custom by James): Starting in 5 seconds.");
             var startTime = Game.Time < 13
                 ? (13000 - (int) (Game.Time * 1000) < 5000 ? 5000 : 13000 - (int) (Game.Time * 1000))
                 : 5000;
@@ -513,7 +514,7 @@ namespace AutoBuddy
                 if (MainMenu.GetMenu("AB_" + ObjectManager.Player.ChampionName) != null &&
                     MainMenu.GetMenu("AB_" + ObjectManager.Player.ChampionName).Get<Label>("shopSequence") != null)
                 {
-                    Chat.Print("Autobuddy: Loaded shop plugin for " + ObjectManager.Player.ChampionName);
+                    Chat.Print("AutoBuddy (LegendaryBot Custom by James): Loaded shop plugin for " + ObjectManager.Player.ChampionName);
                     var bc = new BuildCreator(menu, Path.Combine(SandboxConfig.DataDirectory
                         , "AutoBuddy\\Builds"),
                         MainMenu.GetMenu("AB_" + ObjectManager.Player.ChampionName)
